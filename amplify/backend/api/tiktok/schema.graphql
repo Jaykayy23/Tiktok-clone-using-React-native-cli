@@ -1,0 +1,25 @@
+
+type User @model {
+  id: ID!
+  username: String!
+  email: String!
+  posts: [Post] @hasMany @primarykey(name: "byUser", fields: ["id"])
+}
+
+type Post @model @index(name: "byUser", fields: ["userID"]) {
+  id: ID!
+  videoUri: String!
+  description: String!
+  userID: ID!
+  user: User @hasMany(fields: ["userID"])
+  
+  songID: ID!
+  song: Song @hasMany(fields: ["songID"])
+}
+
+type Song @model {
+  id: ID!
+  name: String!
+  imageUri: String
+}
+

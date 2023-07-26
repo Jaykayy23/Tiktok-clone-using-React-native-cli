@@ -8,6 +8,9 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import plusIcon from '../assets/images/plus-icon.png';
+import ProfileScreen from '../screens/profile';
+import SearchScreen from '../screens/search';
+import InboxScreen from '../screens/inbox';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +35,7 @@ const HomeBottomTabNavigator = () => {
       />
       <Tab.Screen 
       name={'Discover'} 
-      component={Home} 
+      component={SearchScreen} 
       options={{
         tabBarIcon: ({color}) => (
             <AntDesign name={'search1'} size={30} color={color} /> 
@@ -51,7 +54,7 @@ const HomeBottomTabNavigator = () => {
       />
       <Tab.Screen 
       name={'Inbox'} 
-      component={Home}
+      component={InboxScreen}
       options={{
         tabBarIcon: ({color}) => (
             <MaterialCommunityIcons name={'message-minus-outline'} size={30} color={color} /> 
@@ -60,7 +63,7 @@ const HomeBottomTabNavigator = () => {
        />
       <Tab.Screen 
       name={'Profile'} 
-      component={Home} 
+      component={ProfileScreen} 
       options={{
         tabBarIcon: ({color}) => (
             <Ionicons name={'person-outline'} size={30} color={color} /> 

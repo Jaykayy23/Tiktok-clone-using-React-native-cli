@@ -10,6 +10,14 @@
       "StackName": "amplify-tiktok-dev-144911",
       "StackId": "arn:aws:cloudformation:eu-north-1:803347468112:stack/amplify-tiktok-dev-144911/6df485f0-2643-11ee-952d-060b0870807e",
       "AmplifyAppId": "d31qlh5qi009bo"
+    },
+    "categories": {
+      "api": {
+        "tiktok": {}
+      },
+      "auth": {
+        "tiktok7d4a811b": {}
+      }
     }
   }
 }

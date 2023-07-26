@@ -1,25 +1,26 @@
-
-type User @model {
+type User @model @auth(rules: [{ allow: owner}]){
   id: ID!
   username: String!
   email: String!
-  posts: [Post] @hasMany @primarykey(name: "byUser", fields: ["id"])
+  posts: [Post] @hasMany(indexName: "byUser", fields: ["id"])
+  owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }])
 }
 
-type Post @model @index(name: "byUser", fields: ["userID"]) {
-  id: ID!
+type Post @model @auth(rules: [{ allow: owner}]) {
+  id: ID! @index(name: "byUser", sortKeyFields: ["userID"])
   videoUri: String!
   description: String!
   userID: ID!
-  user: User @hasMany(fields: ["userID"])
-  
-  songID: ID!
-  song: Song @hasMany(fields: ["songID"])
+  user: User @belongsTo(fields: ["userID"])
+  songID: ID! @index(name: "bySong", sortKeyFields: ["userID"])
+  song: Song @belongsTo(fields: ["songID"])
+  owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }])
 }
-
-type Song @model {
+type Song @model  @auth(rules: [{ allow: owner}]){
   id: ID!
+  songID: ID!
   name: String!
   imageUri: String
+  posts: [Post] @hasMany(indexName: "bySong", fields: ["songID"])
+  owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }])
 }
-

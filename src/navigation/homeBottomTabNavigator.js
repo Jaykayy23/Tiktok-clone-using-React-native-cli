@@ -11,6 +11,7 @@ import plusIcon from '../assets/images/plus-icon.png';
 import ProfileScreen from '../screens/profile';
 import SearchScreen from '../screens/search';
 import InboxScreen from '../screens/inbox';
+import Camera from '../screens/Camera';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +45,7 @@ const HomeBottomTabNavigator = () => {
       />
       <Tab.Screen 
       name={'Upload'} 
-      component={Home} 
+      component={Camera} 
       options={{
         tabBarIcon: ({color}) => (
             <Image source={plusIcon} style={{height: 35, resizeMode: 'contain'}}/>

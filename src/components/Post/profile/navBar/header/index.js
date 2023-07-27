@@ -32,8 +32,9 @@ export default function ProfileHeader() {
        </View>
        <TouchableOpacity style={buttonStyles.grayOutlinedButton}>
            <Text style={buttonStyles.text}>+ Add bio</Text>
-       </TouchableOpacity>
+       </TouchableOpacity> 
     </View>
+   
   );
 }
 
